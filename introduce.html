@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduce</title>
+    <style>
+        .body {
+            overflow: hidden;
+            width: 100%;   
+        }
+        .section2 {
+            height: 100vh;
+            background-position: center;
+            background-size: cover;
+            position: relative;
+            color: white; /* 文字颜色设为白色 */
+            font-family: '楷体'; /* 设置字体为楷体 */
+			background-image: url(img/wukong2.jpg);
+        }
+		.section {
+		    height: 100vh;
+		    background-position: center;
+		    background-size: cover;
+		    position: relative;
+		    color: white; /* 文字颜色设为白色 */
+		    font-family: '楷体'; /* 设置字体为楷体 */
+			background-image: url(img/wukong1.jpg);
+		}
+        .text-container {
+            position: absolute;
+            top: 300px; /* 调整顶部距离，使文字更靠近视频 */
+            left: 100px; /* 调整左边距离 */
+            width: 300px; /* 宽度与视频容器相同 */
+        }
+        .title {
+            font-size: 2.5em; /* 增大标题字体大小 */
+            margin-bottom: 10px; /* 添加一些间距 */
+        }
+        .description {
+            font-size: 1.5em; /* 增大描述文字字体大小 */
+            margin-bottom: 5px; /* 添加一些间距 */
+        }
+        .highlight {
+            color: red; /* 高亮文字颜色 */
+        }
+        .video-container {
+            position: absolute;
+            bottom: 50px; 
+            left: 100px; 
+            width: 300px; 
+            height: 200px; 
+        }
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div class="text-container">
+            <div class="title">关卡多端</div>
+            <div class="description">雄奇壮丽，<span class="highlight">光怪陆离</span></div>
+            <div class="description">重走<span class="highlight">西游</span>故地，再写神话结局</div>
+        </div>
+        <div class="video-container">
+            <video controls autoplay muted>
+                <source src="img/wukong1.mp4" type="video/mp4">
+                您的浏览器不支持 video 标签。
+            </video>
+        </div>
+    </div>
+    <div class="section2">
+        <div class="text-container">
+            <div class="title">妖王凶猛</div>
+            <div class="description">妖魔<span class="highlight">鬼怪</span>，卷土重来</div>
+            <div class="description">直面罕见<span class="highlight">强敌</span>，对阵昔日传奇</div>
+        </div>
+        <div class="video-container">
+            <video controls autoplay muted>
+                <source src="img/heishenhua.mp4" type="video/mp4">
+                您的浏览器不支持 video 标签。
+            </video>
+        </div>
+    </div>
+
+    <script>
+        const videos = document.querySelectorAll('video');
+        videos.forEach(video => {
+            video.addEventListener('click', () => {
+                if (video.requestFullscreen) {
+                    video.requestFullscreen();
+                } else if (video.mozRequestFullScreen) { // Firefox
+                    video.mozRequestFullScreen();
+                } else if (video.webkitRequestFullscreen) { // Chrome, Safari and Opera
+                    video.webkitRequestFullscreen();
+                } else if (video.msRequestFullscreen) { // IE/Edge
+                    video.msRequestFullscreen();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
